@@ -1,6 +1,8 @@
 'user strict';
 //GLOBAL VARBIABLES//
 var allProducts = [];
+var votes = [];
+var names = [];
 var imgEl1 = document.getElementById('product1');
 var imgEl2 = document.getElementById('product2');
 var imgEl3 = document.getElementById('product3');
@@ -15,6 +17,8 @@ var product3Index = 2;
 
 var globalClicked = -1;
 var result = document.getElementById('result');
+
+
 
 
 function Products(src, name) {
@@ -85,6 +89,8 @@ function chooseNewProducts() {
     imgEl1.src = allProducts[product1Index].url;
     imgEl2.src = allProducts[product2Index].url;
     imgEl3.src = allProducts[product3Index].url;
+
+    productVotes();
 }
 
 
@@ -96,7 +102,9 @@ chooseNewProducts();
 
 function productVotes() {
     for (i = 0; i < 25; i++) {
-        votes[i]=Products.allProducts[i].clicked;
+        votes[i] = Products.allProducts.clicked;
+        name[i] = Products.allProducts.name;
+
     }
 
 
