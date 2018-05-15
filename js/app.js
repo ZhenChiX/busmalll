@@ -188,24 +188,24 @@ function productVotes() {
     /////////////////// Draw chart///////////////////////
 
 
-    // function drawChart() {
-    //     var ctx = document.getElementById('chart').getContext('2d');
-    //     voteChart = new Chart(ctx, {
-    //         type: 'polarArea',
-    //         data: data,
-    //         options: {
-    //         }
-    //     })
-    //     chartDrawn = true;
-    // }
-    // //DATA FROM ARRAY//
-    // var data = {
-    //     labels: productName,
-    //     datasets: [
-    //         {
-    //             data: votes,
-    //         }]
-    // }
+    function drawChart() {
+        var ctx = document.getElementById('chart').getContext('2d');
+        voteChart = new Chart(ctx, {
+            type: 'polarArea',
+            data: data,
+            options: {
+            }
+        })
+        chartDrawn = true;
+    }
+    //DATA FROM ARRAY//
+    var data = {
+        labels: productName,
+        datasets: [
+            {
+                data: votes,
+            }]
+    }
 
 
     var data = {
@@ -229,30 +229,30 @@ function productVotes() {
         }]
     };
 
-    function drawChart() {
-        var ctx = document.getElementById('chart').getContext('2d');
-        songChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: data,
-            options: {
-                responsive: false,
-                animation: {
-                    duration: 1000,
-                    easing: 'easeOutBounce'
-                }
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        max: 10,
-                        min: 0,
-                        stepSize: 1.0
-                    }
-                }]
-            }
-        });
-        chartDrawn = true;
-    }
+    // function drawChart() {
+    //     var ctx = document.getElementById('chart').getContext('2d');
+    //     songChart = new Chart(ctx, {
+    //         type: 'doughnut',
+    //         data: data,
+    //         options: {
+    //             responsive: false,
+    //             animation: {
+    //                 duration: 1000,
+    //                 easing: 'easeOutBounce'
+    //             }
+    //         },
+    //         scales: {
+    //             yAxes: [{
+    //                 ticks: {
+    //                     max: 10,
+    //                     min: 0,
+    //                     stepSize: 1.0
+    //                 }
+    //             }]
+    //         }
+    //     });
+    //     chartDrawn = true;
+    // }
     drawChart();
 
     // drawChart();
