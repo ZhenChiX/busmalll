@@ -5,13 +5,16 @@ var imgEl1 = document.getElementById('product1');
 var imgEl2 = document.getElementById('product2');
 var imgEl3 = document.getElementById('product3');
 
-var h2El1 = document.getElementById('product1-text');
-var h2El2 = document.getElementById('product2-text');
-var h2El3 = document.getElementById('product3-text');
+var liEl1 = document.getElementById('product1-text');
+var liEl2 = document.getElementById('product2-text');
+var liEl3 = document.getElementById('product3-text');
 
 var product1Index = 0;
 var product2Index = 1;
 var product3Index = 2;
+
+var globalClicked = -1;
+var result = document.getElementById('result');
 
 
 function Products(src, name) {
@@ -58,33 +61,44 @@ imgEl2.addEventListener('click', function () {
 
 imgEl3.addEventListener('click', function () {
     allProducts[product3Index].clicked++;
+
     chooseNewProducts();
 
 })
 
 
 function chooseNewProducts() {
-
-
+    globalClicked++;
     product1Index = Math.floor(Math.random() * allProducts.length);
+    product2Index = Math.floor(Math.random() * allProducts.length);
+    product3Index = Math.floor(Math.random() * allProducts.length);
 
-    // if (product1Index === product2Index) {
+    while (product1Index === product2Index || product1Index === product3Index || product2Index === product3Index) {
+
+        // if (product1Index === product3Index || product2Index === product3Index) {
+
+        product1Index = Math.floor(Math.random() * allProducts.length);
         product2Index = Math.floor(Math.random() * allProducts.length);
-    // }
-    // while (product1Index === product2Index || product1Index === product3Index || product2Index === product3Index);
-
-    // if (product1Index === product3Index || product2Index === product3Index) {
-
         product3Index = Math.floor(Math.random() * allProducts.length);
-    // }
-
-
+    }
 
     imgEl1.src = allProducts[product1Index].url;
     imgEl2.src = allProducts[product2Index].url;
     imgEl3.src = allProducts[product3Index].url;
+}
+
+
+
+chooseNewProducts();
+
+
+
+
+function productVotes() {
+    for (i = 0; i < 25; i++) {
+        votes[i]=Products.allProducts[i].clicked;
+    }
 
 
 
 }
-chooseNewProducts();
