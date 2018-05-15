@@ -8,6 +8,7 @@
     <link href="css/reset.css" type="text/css" rel="stylesheet"></link>
     <link href="https://fonts.googleapis.com/css?family=Faster+One|Frijole|Vast+Shadow" rel="stylesheet">
     <link href="css/style.css" type="text/css" rel="stylesheet"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <title>BUS MALL</title>
 </head>
 
@@ -37,9 +38,10 @@
     <main>
         <hr>
         <h2>SURVEY</h2>
+       
         <div id="question">
 
-            <fieldset>
+            <fieldset id="eventcounter">
                 <legend>Pick Your Fav:</legend>
                 <br>
                 <ul>
@@ -56,12 +58,14 @@
 
             </fieldset>
         </div>
+        <Br>
         <div>
             <p>RESULT:</p>
-            <P id="result"></P>
+            <br>
+            <tb id="result"></tb>
         </div>
     </main>
-
+    <canvas id="chart" width="700px" height="400"></canvas>
 </body>
 <!-- var imgEl1 = document.getElementById('product1');
 var imgEl2 = document.getElementById('product2');
@@ -80,6 +84,10 @@ var h2El3 = document.getElementById('product3-text'); -->
 <footer>
 
 </footer>
+
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script> -->
 <script src="js/app.js" type="text/javascript"></script>
 
 </html>

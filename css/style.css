@@ -2,15 +2,21 @@
 font-family: 'Vast Shadow', cursive;
 font-family: 'Frijole', cursive; */
 
+canvas{
+    display:block;
+    z-index: +2;
+    float:left;
+
+}
 
 body{
     display: block;
     width: 960px;
     margin: 0px auto;
-/* background-color: blue; */
-/* background-image: url("https://media.giphy.com/media/ZFRnvBBxFW8De/giphy.gif"); 
+ /* background-color: lightcyan; */
+/* background-image: url("https://media.giphy.com/media/ZFRnvBBxFW8De/giphy.gif");  */
 background-repeat: no-repeat;
-background-size: 100%; */
+background-size: 100%;
 
 
 }
@@ -139,3 +145,16 @@ grid-gap: 3em;
         font-size: 2vw;
     }
 
+
+
+#result{
+    /* font-weight: bold; */
+    display:grid;
+    border:2px solid orange;
+    grid-template-columns: auto auto auto auto ;
+    grid-gap: 1em;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    box-shadow:0 0 3vw #666;
+
+}

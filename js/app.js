@@ -2,7 +2,9 @@
 //GLOBAL VARBIABLES//
 var allProducts = [];
 var votes = [];
-var names = [];
+var productName = [];
+
+
 var imgEl1 = document.getElementById('product1');
 var imgEl2 = document.getElementById('product2');
 var imgEl3 = document.getElementById('product3');
@@ -15,12 +17,13 @@ var product1Index = 0;
 var product2Index = 1;
 var product3Index = 2;
 
-var globalClicked = -1;
-var result = document.getElementById('result');
+var globalClicked = 0;
+var fieldsetEl = document.getElementById('eventcounter');
+var resultTb = document.getElementById('result');
 
+var chartDrawn = false;
 
-
-
+//constructor allproducts//
 function Products(src, name) {
     this.url = src;
     this.name = name;
@@ -51,6 +54,24 @@ var waterCan = new Products('img/water-can.jpg', 'water-can');
 var wineGlass = new Products('img/wine-glass.jpg', 'wine-glass');
 
 
+
+//Event listener//
+fieldsetEl.addEventListener('click', fieldCallback);
+
+function fieldCallback(Event) {
+    checkGlobalClicked();
+    console.log(event);
+    if (event.target.id) {
+        globalClicked++;
+        // allProducts[event.target.id].name++;
+
+        chooseNewProducts();
+    } else { alert('Click on THE IMAGE!'); }
+}
+
+
+
+
 imgEl1.addEventListener('click', function () {
     allProducts[product1Index].clicked++;
     chooseNewProducts();
@@ -72,7 +93,7 @@ imgEl3.addEventListener('click', function () {
 
 
 function chooseNewProducts() {
-    globalClicked++;
+    // globalClicked++;
     product1Index = Math.floor(Math.random() * allProducts.length);
     product2Index = Math.floor(Math.random() * allProducts.length);
     product3Index = Math.floor(Math.random() * allProducts.length);
@@ -89,24 +110,157 @@ function chooseNewProducts() {
     imgEl1.src = allProducts[product1Index].url;
     imgEl2.src = allProducts[product2Index].url;
     imgEl3.src = allProducts[product3Index].url;
+}
+// productVotes();
 
-    productVotes();
+
+// //No duplicate New PIC//
+
+// function chooseNewProducts() {
+
+
+
+//     var previous1 = product1Index;
+//     var previous2 = product2Index;
+//     var previous3 = product3Index;
+
+//     do {
+//         product1Index = Math.floor(Math.random() * allProducts.length);
+//     } while (previous1 === product1Index || previous2 === product1Index || previous3 === product3Index);
+
+//     do {
+//         product2Index = Math.floor(Math.random() * allProducts.length);
+//     } while (previous1 === product2Index || previous2 === product2Index || previous3 === product3Index);
+
+//     do {
+//         product3Index = Math.floor(Math.random() * allProducts.length);
+//     }
+//     while (previous1 === product3Index || previous2 === product3Index || previous3 === product3Index);
+
+
+//     imgEl1.src = allProducts[product1Index].url;
+//     imgEl2.src = allProducts[product2Index].url;
+//     imgEl3.src = allProducts[product3Index].url;
+
+// }
+
+
+
+
+
+
+
+
+function renderResults() {
+    for (var i in allProducts) {
+        var newliTd = document.createElement('td');
+        newliTd.textContent = allProducts[i].name + ' clicked: ' + allProducts[i].clicked + ' times.';
+        resultTb.appendChild(newliTd);
+    }
+
 }
 
 
+function checkGlobalClicked() {
+    if (globalClicked === 24) {
+        renderResults();
+        // console.log(globalClicked);
 
+        fieldsetEl.removeEventListener('click', fieldCallback);
+
+        productVotes();
+       
+
+    }
+}
 chooseNewProducts();
 
 
-
+/////set data to array///////
 
 function productVotes() {
-    for (i = 0; i < 25; i++) {
-        votes[i] = Products.allProducts.clicked;
-        name[i] = Products.allProducts.name;
+    for (i = 0; i < allProducts.length; i++) {
+        votes[i] = allProducts[i].clicked;
+        productName[i] = allProducts[i].name;
 
     }
 
+    /////////////////// Draw chart///////////////////////
 
 
+    // function drawChart() {
+    //     var ctx = document.getElementById('chart').getContext('2d');
+    //     voteChart = new Chart(ctx, {
+    //         type: 'polarArea',
+    //         data: data,
+    //         options: {
+    //         }
+    //     })
+    //     chartDrawn = true;
+    // }
+    // //DATA FROM ARRAY//
+    // var data = {
+    //     labels: productName,
+    //     datasets: [
+    //         {
+    //             data: votes,
+    //         }]
+    // }
+
+
+    var data = {
+        labels: productName, // titles array we declared earlier
+        datasets: [{
+            data: votes, // votes array we declared earlier
+            backgroundColor: [
+                'bisque',
+                'darkgray',
+                'burlywood',
+                'lightblue',
+                'navy'
+            ],
+            hoverBackgroundColor: [
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple'
+            ]
+        }]
+    };
+
+    function drawChart() {
+        var ctx = document.getElementById('chart').getContext('2d');
+        songChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: data,
+            options: {
+                responsive: false,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutBounce'
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        max: 10,
+                        min: 0,
+                        stepSize: 1.0
+                    }
+                }]
+            }
+        });
+        chartDrawn = true;
+    }
+    drawChart();
+
+    // drawChart();
+    //EVENT LISTENSER FOR CHARTS//
+
+    // document.getElementById('chart').addEventListener('click', function () {
+      
+
+
+    // })
 }
