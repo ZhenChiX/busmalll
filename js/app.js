@@ -114,43 +114,6 @@ function chooseNewProducts() {
 // productVotes();
 
 
-// //No duplicate New PIC//
-
-// function chooseNewProducts() {
-
-
-
-//     var previous1 = product1Index;
-//     var previous2 = product2Index;
-//     var previous3 = product3Index;
-
-//     do {
-//         product1Index = Math.floor(Math.random() * allProducts.length);
-//     } while (previous1 === product1Index || previous2 === product1Index || previous3 === product3Index);
-
-//     do {
-//         product2Index = Math.floor(Math.random() * allProducts.length);
-//     } while (previous1 === product2Index || previous2 === product2Index || previous3 === product3Index);
-
-//     do {
-//         product3Index = Math.floor(Math.random() * allProducts.length);
-//     }
-//     while (previous1 === product3Index || previous2 === product3Index || previous3 === product3Index);
-
-
-//     imgEl1.src = allProducts[product1Index].url;
-//     imgEl2.src = allProducts[product2Index].url;
-//     imgEl3.src = allProducts[product3Index].url;
-
-// }
-
-
-
-
-
-
-
-
 function renderResults() {
     for (var i in allProducts) {
         var newliTd = document.createElement('td');
@@ -169,7 +132,7 @@ function checkGlobalClicked() {
         fieldsetEl.removeEventListener('click', fieldCallback);
 
         productVotes();
-       
+
 
     }
 }
@@ -217,9 +180,41 @@ function productVotes() {
                 'darkgray',
                 'burlywood',
                 'lightblue',
-                'navy'
+                'navy',
+                'peach',
+                'orange',
+                'amber',
+                'yellow',
+                'olive',
+                'black',
+                'cyan',
+                'azure',
+                'indigo',
+                'teal',
+                'lime',
+                'red',
+                'sky blue',
+                'gold',
+                'silver',
+                'blue'
             ],
             hoverBackgroundColor: [
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
+                'purple',
                 'purple',
                 'purple',
                 'purple',
@@ -229,38 +224,5 @@ function productVotes() {
         }]
     };
 
-    // function drawChart() {
-    //     var ctx = document.getElementById('chart').getContext('2d');
-    //     songChart = new Chart(ctx, {
-    //         type: 'doughnut',
-    //         data: data,
-    //         options: {
-    //             responsive: false,
-    //             animation: {
-    //                 duration: 1000,
-    //                 easing: 'easeOutBounce'
-    //             }
-    //         },
-    //         scales: {
-    //             yAxes: [{
-    //                 ticks: {
-    //                     max: 10,
-    //                     min: 0,
-    //                     stepSize: 1.0
-    //                 }
-    //             }]
-    //         }
-    //     });
-    //     chartDrawn = true;
-    // }
     drawChart();
-
-    // drawChart();
-    //EVENT LISTENSER FOR CHARTS//
-
-    // document.getElementById('chart').addEventListener('click', function () {
-      
-
-
-    // })
 }

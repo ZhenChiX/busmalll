@@ -10,7 +10,7 @@ canvas{
 }
 
 body{
-    display: block;
+    display: grid;
     width: 960px;
     margin: 0px auto;
  /* background-color: lightcyan; */
@@ -92,11 +92,14 @@ legend{
 }
 
 #question{
-   width: 800px;
+    display: block;
+   
    align-content: center;
+   margin:0px auto;
 }
 
 fieldset{
+    
     border-radius:30px;  
     /* border:1px solid #666; */
     box-shadow: 0 0 50px #666;
@@ -157,4 +160,10 @@ grid-gap: 3em;
     border-radius: 20px;
     box-shadow:0 0 3vw #666;
 
+}
+
+
+footer span p{
+    text-align: center;
+    font-size:1.5vw;
 }
