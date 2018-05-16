@@ -99,7 +99,7 @@ function chooseNewProducts() {
     product3Index = Math.floor(Math.random() * allProducts.length);
 
     while (product1Index === product2Index || product1Index === product3Index || product2Index === product3Index) {
-
+        // console.log('show duplicate');
         // if (product1Index === product3Index || product2Index === product3Index) {
 
         product1Index = Math.floor(Math.random() * allProducts.length);
