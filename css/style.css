@@ -93,9 +93,9 @@ legend{
 
 #question{
     display: block;
-   
-   align-content: center;
-   margin:0px auto;
+    
+    align-content: center;
+    margin:0px auto;
 }
 
 fieldset{
@@ -108,23 +108,23 @@ fieldset{
 }
 
 #question ul{
-display: grid;
-grid-template-columns: auto auto auto;
-grid-gap: 3em;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 3em;
 
 }
 /* spinner question */
 #question img{
-        width: 260px;
-        height: 260px;
+    width: 260px;
+    height: 260px;
 
-        -moz-border-radius: 130px;
-        -webkit-border-radius: 130px;
-        border-radius: 130px;
-        box-shadow: 1vw;
-        border: 5px solid transparent;
-        border-top-color: orange;
-        border-bottom-color: orange;
+    -moz-border-radius: 130px;
+    -webkit-border-radius: 130px;
+    border-radius: 130px;
+    box-shadow: 1vw;
+    border: 5px solid transparent;
+    border-top-color: orange;
+    border-bottom-color: orange;
     }
 #question img:hover{
     transform: scale(1.1);

@@ -64,6 +64,9 @@ function fieldCallback(Event) {
     if (event.target.id) {
         globalClicked++;
         // allProducts[event.target.id].name++;
+        
+        //local storage //
+        runLocalStorage();
 
         chooseNewProducts();
     } else { alert('Click on THE IMAGE!'); }
@@ -133,7 +136,7 @@ function checkGlobalClicked() {
 
         productVotes();
 
-
+        // retrieveStorage();
     }
 }
 chooseNewProducts();
@@ -225,4 +228,16 @@ function productVotes() {
     };
 
     drawChart();
+}
+//////////LOCAL STORAGE////////////////
+
+function runLocalStorage() {
+     
+    localStorage.setItem('allProducts', JSON.stringify(allProducts));
+
+}
+
+function retrieveStorage() {
+    localStorage.getItem('allProducts');
+    console.log('retrieveStorage', JSON.parse(retrieveStorage));
 }
