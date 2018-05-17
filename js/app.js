@@ -67,7 +67,7 @@ function fieldCallback(Event) {
         
         //local storage //
         runLocalStorage();
-
+        //reroll new products//
         chooseNewProducts();
     } else { alert('Click on THE IMAGE!'); }
 }
